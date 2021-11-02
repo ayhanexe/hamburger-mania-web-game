@@ -7,8 +7,8 @@ const pointsElement = document.querySelector("#points");
 const deleteButton = document.querySelector("#delete");
 const totalPoints = document.querySelector("#total-points");
 const outdoor = document.querySelector(".outdoor");
+const musicPlayer = document.querySelector("audio");
 
-const musicPlayer = new Audio("./assets/media/sfx/music.mp3");
 const effectsPlayer = new Audio();
 
 let draggingElement;
@@ -63,7 +63,7 @@ let customerTexts = [
   ":)",
 ];
 
-musicPlayer.play();
+window.addEventListener("click", () => musicPlayer.play());
 
 musicPlayer.addEventListener("ended", () => {
   musicPlayer.currentTime = 0;
@@ -379,7 +379,6 @@ function generateOrder() {
   let loopCount = Math.floor(
     Math.random() * Object.keys(safeBurgerItems).length
   );
-  console.log(loopCount, "loop");
 
   [...Array(loopCount == 0 ? ++loopCount : loopCount)].forEach(() => {
     const randomIngrident =
@@ -389,7 +388,9 @@ function generateOrder() {
     let element;
 
     if (randomIngrident == "ketchup" || randomIngrident == "maynez") {
-      element = $("span", "", [`${randomIngrident == "ketchup" ? "ketcuk" : randomIngrident}-text`]);
+      element = $("span", "", [
+        `${randomIngrident == "ketchup" ? "ketcuk" : randomIngrident}-text`,
+      ]);
       element.innerText = randomIngrident.toUpperCase();
     } else {
       element = $(
@@ -410,8 +411,6 @@ function generateOrder() {
   order.push("breadTop");
   orderArea.append(burgerTop);
   orderArea.append(orderName);
-
-  console.log(order);
 }
 
 function getRandomOrderName() {
