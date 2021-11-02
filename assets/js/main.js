@@ -241,7 +241,7 @@ function makeCustomer(callback = () => {}) {
   gsap
     .to(customer, {
       opacity: 1,
-      top: "-20px",
+      top: "20px",
     })
     .then(() => callback());
 }
