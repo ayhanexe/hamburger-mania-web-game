@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body>
+    <div id="game-root">
+        <h1 id="total-points-text">
+            <span id="total-points-score">Score: </span>
+            <span id="total-points">0</span>
+        </h1>
+        <h1 id="points"></h1>
+        <div class="game-interaction-area">
+            <div class="stand">
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Bamador</span>
+                    <img src="./assets/media/tomato.svg" draggable="true" data-type="tomato" class="ingrident" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Kərtof</span>
+                    <img src="./assets/media/potato.svg" draggable="true" data-type="potato" class="ingrident" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Durşu</span>
+                    <img src="./assets/media/pickle.svg" draggable="true" data-type="pickle" class="ingrident" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">ƏT</span>
+                    <img src="./assets/media/meat.svg" draggable="true" data-type="meat" class="ingrident" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Pəndür (Cheddar)</span>
+                    <img src="./assets/media/cheddar.svg" draggable="true" data-type="cheddar" class="ingrident" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Əppək (Üst)</span>
+                    <img src="./assets/media/bread-top.svg" draggable="true" data-type="breadTop" class="ingrident"
+                        alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Nenemin Maynezi</span>
+                    <img src="./assets/media/mayonnasie.svg" draggable="true" data-type="maynez" class="ingrident"
+                        style="width:100px; height:150px; top:0; left:40%" alt="">
+                </div>
+                <div class="ingrident-area">
+                    <span class="ingrident-name">Nenemin Ketcuku</span>
+                    <img src="./assets/media/ketchup.svg" draggable="true" data-type="ketchup" class="ingrident"
+                        style="width:100px; height:150px; top:0; left:40%" alt="">
+                </div>
+            </div>
+            <div class="burger-make">
+                <button id="delete">🗑️</button>
+                <div id="burger-container" dropzone="">
+                    <img src="./assets/media/bread-bottom.svg" alt="">
+                </div>
+                <button id="ready">READY</button>
+            </div>
+            <div class="order">
+                <div class="coins">
+                </div>
+                <div class="order-item">
+                </div>
+            </div>
+            <div class="outdoor">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js"></script>
+    <script src="./assets/js/mojs.d.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
