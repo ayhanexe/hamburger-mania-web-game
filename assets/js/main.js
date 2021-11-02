@@ -43,25 +43,60 @@ let safeBurgerItems = {
   maynez: "maynez",
 };
 
-let customers = {
-  ayka: "./assets/media/customer.png",
-  tosu: "./assets/media/customer2.png",
-  rembo: "./assets/media/customer3.png",
-  rte: "./assets/media/customer4.png",
-  deli: "./assets/media/customer5.png",
-  deli2: "./assets/media/customer6.png", // :D
-};
-
-let customerTexts = [
-  `Salam məlöykü qadan alem\nMağa ordan bidene burgir ver.`,
-  "Ölüm Ölüm.\nnevemçün burgir ver maa.",
-  "Salam. Bu dünya niyə var?",
-  "Aşağı yeri var burgirlerin?",
-  "Burgir ver ama mayonezi bol olmasın.",
+let tosuTexts = [
   "Getir bidene burgir.",
-  "Salam.",
-  ":)",
+  "Burgir ver ama mayonezi bol olmasın.",
+  "Var Zengilandan bidene canavaaar....\nOda Tosu Zengilanskidi ay braaat.",
+  "A.Y.E",
 ];
+
+let customers = {
+  ayka: {
+    image: "./assets/media/customer.png",
+    texts: [...tosuTexts],
+  }, //tosu
+  tosu: {
+    image: "./assets/media/customer2.png",
+    texts: [...tosuTexts],
+  }, //tosu
+  rembo: {
+    image: "./assets/media/customer3.png",
+    texts: [...tosuTexts],
+  }, // tosu
+  rte: {
+    image: "./assets/media/customer4.png",
+    texts: [
+      "Deyerli vatandaş bana burgir verir misin?",
+      "Yanında çay veriyor musun başkan?",
+      "2023de göreceksiniz",
+    ],
+  }, // rte
+  deli: {
+    image: "./assets/media/customer5.png",
+    texts: ["Hi ;)", "Gimme burgir bro!", "I am president of America"],
+  }, //trump
+  deli2: {
+    //elza
+    image: "./assets/media/customer6.png",
+    texts: [
+      "Acından quruldayır qarnım qarnım qarnım,\nAxı nedir menim günahım?",
+    ],
+  }, // :D
+  akua: {
+    //elza
+    image: "./assets/media/customer7.png",
+    texts: ["Akulaaa..... Nedeten?"],
+  },
+  feridQaya: {
+    //elza
+    image: "./assets/media/customer8.png",
+    texts: [
+      "Yiyecem.... Burgiri direm ha canciyer.",
+      "Netersen canciyer?",
+      "Seni qefes döyüşüne çağırıram canciyer!",
+    ],
+  },
+};
 
 window.addEventListener("click", () => musicPlayer.play());
 
@@ -156,7 +191,7 @@ function animateCoins(numCount = order.length) {
   });
 }
 
-function byeCustomer(callback) {
+function byeCustomer(callback = () => {}) {
   const customer = document.querySelector(".customer");
   const text = customer.querySelector(".customer-text");
 
@@ -172,8 +207,8 @@ function byeCustomer(callback) {
   }, 2500);
 }
 
-function makeCustomer(callback) {
-  const randomImg =
+function makeCustomer(callback = () => {}) {
+  const randomPerson =
     Object.values(customers)[
       Math.floor(Math.random() * Object.values(customers).length)
     ];
@@ -190,12 +225,12 @@ function makeCustomer(callback) {
     ["customer-image"],
     {},
     {
-      src: randomImg,
+      src: randomPerson.image,
     }
   );
 
   customerText.innerText =
-    customerTexts[Math.floor(Math.random() * customerTexts.length)];
+    randomPerson.texts[Math.floor(Math.random() * randomPerson.texts.length)];
 
   customerTextContainer.appendChild(customerText);
   customer.appendChild(customerTextContainer);
